@@ -74,6 +74,9 @@
     "tslib": "^2.3.1",
     "typescript": "^4.4.3"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/makarimi76/react-navigation.git"
