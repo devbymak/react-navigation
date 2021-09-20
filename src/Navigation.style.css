@@ -1,0 +1,15 @@
+.navigation {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  right: 0;
+  left: 0
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.top {
+  top: 0;
+}
