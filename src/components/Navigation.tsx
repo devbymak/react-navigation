@@ -32,6 +32,7 @@ export function Navigation({
   variant,
   zIndex,
 }: NavigationProps) {
+  const classNameProps = className ? `navigation ${className}` : 'navigation'
   const stylesProps = {}
 
   const showNavigation = useShowNavigation(breakPoint)
@@ -87,10 +88,7 @@ export function Navigation({
 
   if (showNavigation)
     return (
-      <nav
-        className={`navigation${className ? ` ${className}` : ''}`}
-        style={{ ...stylesProps, ...style }}
-      >
+      <nav className={classNameProps} style={{ ...stylesProps, ...style }}>
         {children}
       </nav>
     )
