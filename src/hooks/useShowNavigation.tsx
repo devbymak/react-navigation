@@ -1,10 +1,10 @@
-import { useState, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import { isBreak } from '../utils/breakPoint.util'
 
 export function useShowNavigation(breakPoint: any) {
   const [showNavigation, setShowNavigation] = useState(true)
-  useLayoutEffect(() => {
+  useEffect(() => {
     function updateShowNavigation() {
       if (breakPoint) setShowNavigation(isBreak(breakPoint, window.screen.width))
     }
@@ -13,7 +13,7 @@ export function useShowNavigation(breakPoint: any) {
 
     window.addEventListener('resize', updateShowNavigation)
     return () => window.removeEventListener('resize', updateShowNavigation)
-  }, [])
+  }, [breakPoint])
 
   return showNavigation
 }

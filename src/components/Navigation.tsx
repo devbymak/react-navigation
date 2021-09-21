@@ -34,6 +34,9 @@ export function Navigation({
 }: NavigationProps) {
   const stylesProps = {}
 
+  const showNavigation = useShowNavigation(breakPoint)
+  const safeArea = useSafeArea()
+
   // backgroundColor
   Object.assign(stylesProps, {
     backgroundColor,
@@ -44,12 +47,10 @@ export function Navigation({
     Object.assign(stylesProps, {
       display: 'grid',
       gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-      alignItems: 'center',
-      justifyItems: 'center',
     })
 
   // height
-  if (variant === 'bottom' && useSafeArea())
+  if (variant === 'bottom' && safeArea)
     Object.assign(stylesProps, {
       height: safeAriaHeight,
     })
@@ -79,13 +80,17 @@ export function Navigation({
   }
 
   // z-index
-  zIndex && Object.assign(stylesProps, {
-    zIndex,
-  })
+  zIndex &&
+    Object.assign(stylesProps, {
+      zIndex,
+    })
 
-  if (useShowNavigation(breakPoint))
+  if (showNavigation)
     return (
-      <nav className={`navigation ${className}`} style={{ ...stylesProps, ...style }}>
+      <nav
+        className={`navigation${className ? ` ${className}` : ''}`}
+        style={{ ...stylesProps, ...style }}
+      >
         {children}
       </nav>
     )
