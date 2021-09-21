@@ -1,6 +1,6 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import Navigation from '../src'
+import Navigation from '../src/'
 
 const meta: Meta = {
   title: 'Example',
@@ -19,7 +19,17 @@ const meta: Meta = {
 
 export default meta
 
-const Template: Story = () => <Navigation>Demo</Navigation>
+const Template: Story = () => (
+  <Navigation
+    variant="bottom"
+    zIndex={false}
+    columns={1}
+    breakPoint="md"
+    style={{ color: 'red' }}
+  >
+    Demo
+  </Navigation>
+)
 
 export const Demo = Template.bind({})
 
